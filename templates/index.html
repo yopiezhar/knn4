@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-lg p-4">
+            <h2 class="text-center mb-4">Heart Disease Prediction</h2>
+            <form action="/predict" method="POST">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" class="form-control" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender (1: Male, 2: Female):</label>
+                    <input type="number" class="form-control" id="gender" name="gender" required>
+                </div>
+                <div class="form-group">
+                    <label for="height">Height (cm):</label>
+                    <input type="number" class="form-control" id="height" name="height" required>
+                </div>
+                <div class="form-group">
+                    <label for="weight">Weight (kg):</label>
+                    <input type="number" class="form-control" id="weight" name="weight" required>
+                </div>
+                <div class="form-group">
+                    <label for="ap_hi">Systolic blood pressure:</label>
+                    <input type="number" class="form-control" id="ap_hi" name="ap_hi" required>
+                </div>
+                <div class="form-group">
+                    <label for="ap_lo">Diastolic blood pressure:</label>
+                    <input type="number" class="form-control" id="ap_lo" name="ap_lo" required>
+                </div>
+                <div class="form-group">
+                    <label for="cholesterol">Cholesterol (1: normal, 2: above normal, 3: well above normal):</label>
+                    <input type="number" class="form-control" id="cholesterol" name="cholesterol" required>
+                </div>
+                <div class="form-group">
+                    <label for="gluc">Glucose (1: normal, 2: above normal, 3: well above normal):</label>
+                    <input type="number" class="form-control" id="gluc" name="gluc" required>
+                </div>
+                <div class="form-group">
+                    <label for="smoke">Do you smoke? (0: No, 1: Yes):</label>
+                    <input type="number" class="form-control" id="smoke" name="smoke" required>
+                </div>
+                <div class="form-group">
+                    <label for="alco">Do you drink alcohol? (0: No, 1: Yes):</label>
+                    <input type="number" class="form-control" id="alco" name="alco" required>
+                </div>
+                <div class="form-group">
+                    <label for="active">Are you physically active? (0: No, 1: Yes):</label>
+                    <input type="number" class="form-control" id="active" name="active" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Predict</button>
+            </form>
+            {% if prediction_text %}
+                <h3 class="text-center mt-4">{{ prediction_text }}</h3>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

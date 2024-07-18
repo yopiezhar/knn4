@@ -29,12 +29,12 @@ def predict_heart_disease(model, scaler, age, gender, height, weight, ap_hi, ap_
 
 st.title('Heart Disease Prediction')
 
-age = st.number_input('Age', min_value=0, max_value=120, value=0)
+age = st.number_input('Age', min_value=0, max_value=120)
 gender = st.selectbox('Gender', options=[1, 2], format_func=lambda x: 'Male' if x == 1 else 'Female')
-height = st.number_input('Height (cm)', min_value=50, max_value=250, value=0)
-weight = st.number_input('Weight (kg)', min_value=10, max_value=300, value=0)
-ap_hi = st.number_input('Systolic blood pressure', min_value=50, max_value=250, value=0)
-ap_lo = st.number_input('Diastolic blood pressure', min_value=30, max_value=150, value=0)
+height = st.number_input('Height (cm)', min_value=0, max_value=250)
+weight = st.number_input('Weight (kg)', min_value=0, max_value=300)
+ap_hi = st.number_input('Systolic blood pressure', min_value=50, max_value=250)
+ap_lo = st.number_input('Diastolic blood pressure', min_value=30, max_value=150)
 cholesterol = st.selectbox('Cholesterol', options=[1, 2, 3], format_func=lambda x: ['normal', 'above normal', 'well above normal'][x-1])
 gluc = st.selectbox('Glucose', options=[1, 2, 3], format_func=lambda x: ['normal', 'above normal', 'well above normal'][x-1])
 smoke = st.selectbox('Do you smoke?', options=[0, 1], format_func=lambda x: 'Yes' if x == 1 else 'No')
